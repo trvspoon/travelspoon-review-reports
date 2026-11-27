@@ -6,16 +6,21 @@
 
 dialog:has(.commit-review){width:min(1120px,100vw);box-sizing:border-box}
 .commit-review{margin-top:24px;min-width:0}.commit-review header{font-size:13px;color:var(--muted);margin:8px 0 15px}
-.file-picker{display:block;max-width:100%;margin:6px 0 14px;background:#1c1c29;color:var(--ink);border:1px solid #606077;border-radius:5px;padding:7px;font:inherit}
+
 .hunk{margin:16px 0}.hunk h4{margin:0 0 5px;font-size:13px;color:var(--muted)}.sides{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.side{border:1px solid #404052;border-radius:6px;min-width:0;overflow:hidden}.side h5{margin:0;background:#303042;padding:6px 10px;font-size:13px}.side pre{margin:0;background:#181822;border:0;border-radius:0;padding:7px 0;font:12px/1.65 ui-monospace,Menlo,monospace;white-space:pre;overflow-x:auto;tab-size:2}.side code{display:block;min-width:max-content}.source-line{display:block;min-height:1.65em;padding-right:8px}.line-no{display:inline-block;min-width:5ch;text-align:right;margin-right:1ch;color:#b8b3ca;user-select:none}.added{background:#173e32}.removed{background:#4b2835}.sign{display:inline-block;width:2ch;color:#c6c2cf;user-select:none}.hunk p{padding:6px 10px;color:var(--muted);font-size:13px}.commit-review .file-meta{font-size:13px;color:var(--muted)}
-@media(max-width:760px){.sides{grid-template-columns:minmax(0,1fr)}dialog{padding:14px}.file-picker{width:100%}}
-.node{max-width:225px}.node span{overflow-wrap:anywhere}.lane{min-width:max-content}.chart{width:max-content;min-width:100%}.steps{max-height:12em;overflow:auto}</style></head><body><main><header><h1></h1><div class="meta"></div><div class="cards"></div></header>
+@media(max-width:760px){.sides{grid-template-columns:minmax(0,1fr)}dialog{padding:14px}}
+.node{max-width:225px}.node span{overflow-wrap:anywhere}.lane{min-width:max-content}.chart{width:max-content;min-width:100%}.steps{max-height:12em;overflow:auto}html{scrollbar-gutter:stable}html:has(dialog[open]),html:has(dialog[open]) body{overflow:hidden;overscroll-behavior:none}
+dialog{overflow-y:auto;overscroll-behavior:contain}.side pre{overscroll-behavior-x:contain}
+.change-reason{display:grid;grid-template-columns:3rem minmax(0,1fr);gap:9px 12px;padding:14px;border:1px solid var(--border);border-radius:7px;background:#292839}
+.change-reason dt{font-weight:700;color:#cfbaff}.change-reason dd{margin:0}
+.review-file{border-top:1px solid var(--border);margin:22px 0 0;padding-top:16px}.review-file h3{margin:4px 0 10px;overflow-wrap:anywhere}.source-line{white-space:pre}
+</style></head><body><main><header><h1></h1><div class="meta"></div><div class="cards"></div></header>
 <section><h2>변경 파일 (단계별)</h2><p>분류별 대표 파일을 최대 네 개씩 표시합니다. 단계 버튼에서 해당 커밋의 전체 파일과 변경 전후 코드를 볼 수 있습니다.</p><div class="steps"></div><div class="legend"></div><div class="chartwrap"><div class="chart"><svg class="lines" aria-hidden="true"></svg></div></div></section>
 <section><h2>진행 방식</h2><ul class="list"></ul></section>
 <section><h2>단계 한눈에</h2><p>행을 누르면 그 단계에서 한 일과 변경 전후를 오른쪽 패널에서 확인할 수 있습니다.</p><div class="tablewrap"><table><thead><tr><th>#</th><th>단계</th><th>변경 범위</th><th>공개 코드 변화</th><th>상태</th><th>코드</th></tr></thead><tbody></tbody></table></div><div class="extra"></div></section><p style="margin-top:22px"><a href="../../">최근 PR 목록 ↗</a></p></main>
 <dialog aria-labelledby="detail-title"><button class="close" type="button">닫기 ×</button><h2 id="detail-title"></h2><div class="detail"></div></dialog>
 <!-- 문서를 복제한 뒤 아래 JSON에서 제목, 단계, 레이어, 노드, 연결 관계를 수정하세요. steps와 nodes의 연결 번호는 0부터 시작합니다. -->
-<script type="application/json" id="report">{"title":"feat: 외국어 메시지 판별과 채팅 번역 UI 개선","meta":["PR #151","종료","기준 main","검토 커밋 5ded4b29"],"metrics":[["2","커밋 단계"],["33","변경 파일 (중복 제외)"],["+64327","공개한 추가 줄 · 커밋 합계"],["−318","공개한 삭제 줄 · 커밋 합계"]],"steps":[{"title":"feat: 외국어 메시지 판별과 채팅 번역 UI 개선","goal":"32개 파일","impact":"+63978 / −260","link":"변경 보기","status":"committed","note":"lib/pages/chat/chat_room_page.dart · lib/pages/chat/widgets/translatable_message_text.dart · lib/services/chat_language_detector.dart","before":"580d4c2db5","after":"7bdf345dbe","compare":{"commit":"7bdf345dbe1624e8e342d50dd3b234ef4ebb6cc3","parent":"580d4c2db56cd9ac36f5c4b3de6f104a411c33f6","src":"changes/7bdf345dbe1624e8e342d50dd3b234ef4ebb6cc3.json"},"url":"https://github.com/trvspoon/travelspoon/pull/151/commits/7bdf345dbe1624e8e342d50dd3b234ef4ebb6cc3"},{"title":"fix: 번역 판별 실패 대응과 접근성 레이아웃 보완","goal":"13개 파일","impact":"+349 / −58","link":"변경 보기","status":"committed","note":"lib/pages/chat/chat_room_page.dart · lib/pages/chat/widgets/translatable_message_text.dart · lib/services/chat_language_detector.dart","before":"7bdf345dbe","after":"5ded4b299f","compare":{"commit":"5ded4b299ff34f2d8802cf2cccb061d437d31541","parent":"7bdf345dbe1624e8e342d50dd3b234ef4ebb6cc3","src":"changes/5ded4b299ff34f2d8802cf2cccb061d437d31541.json"},"url":"https://github.com/trvspoon/travelspoon/pull/151/commits/5ded4b299ff34f2d8802cf2cccb061d437d31541"}],"nodes":[{"title":"chat_room_page.dart","label":"lib/pages/chat/chat_room_page.dart","kind":"edit","lane":0,"step":1,"caption":"2단계","file":"lib/pages/chat/chat_room_page.dart"},{"title":"translatable_message_text.dart","label":"lib/pages/chat/widgets/translatable_message_text.dart","kind":"edit","lane":0,"step":1,"caption":"2단계","file":"lib/pages/chat/widgets/translatable_message_text.dart"},{"title":"chat_language_detector.dart","label":"lib/services/chat_language_detector.dart","kind":"edit","lane":0,"step":1,"caption":"2단계","file":"lib/services/chat_language_detector.dart"},{"title":"build.gradle.kts","label":"android/app/build.gradle.kts","kind":"edit","lane":0,"step":0,"caption":"1단계","file":"android/app/build.gradle.kts"},{"title":"chat_room_page_test.dart","label":"test/pages/chat/chat_room_page_test.dart","kind":"edit","lane":1,"step":1,"caption":"2단계","file":"test/pages/chat/chat_room_page_test.dart"},{"title":"translatable_message_text_test.dart","label":"test/pages/chat/widgets/translatable_message_text_test.dart","kind":"edit","lane":1,"step":1,"caption":"2단계","file":"test/pages/chat/widgets/translatable_message_text_test.dart"},{"title":"chat_language_detector_test.dart","label":"test/services/chat_language_detector_test.dart","kind":"edit","lane":1,"step":1,"caption":"2단계","file":"test/services/chat_language_detector_test.dart"},{"title":"chat_test_cases.md","label":"docs/qa/chat_test_cases.md","kind":"edit","lane":1,"step":1,"caption":"2단계","file":"docs/qa/chat_test_cases.md"},{"title":"AGENTS.md","label":"AGENTS.md","kind":"edit","lane":2,"step":0,"caption":"1단계","file":"AGENTS.md"},{"title":"DESIGN.md","label":"DESIGN.md","kind":"edit","lane":2,"step":0,"caption":"1단계","file":"DESIGN.md"},{"title":"google-translation-attribution.md","label":"assets/icons/google-translation-attribution.md","kind":"edit","lane":2,"step":0,"caption":"1단계","file":"assets/icons/google-translation-attribution.md"},{"title":"my_groups.md","label":"docs/agent-design-guideline/my_groups.md","kind":"edit","lane":2,"step":1,"caption":"2단계","file":"docs/agent-design-guideline/my_groups.md"},{"title":"google-translation-greyscale.png","label":"assets/icons/google-translation-greyscale.png","kind":"edit","lane":3,"step":0,"caption":"1단계","file":"assets/icons/google-translation-greyscale.png"},{"title":"7db4f23dfe1ad8966b050b419a865da451143fd43eb6b606a256aadeeb1e5417","label":"assets/mediapipe/7db4f23dfe1ad8966b050b419a865da451143fd43eb6b606a256aadeeb1e5417","kind":"edit","lane":3,"step":0,"caption":"1단계","file":"assets/mediapipe/7db4f23dfe1ad8966b050b419a865da451143fd43eb6b606a256aadeeb1e5417"},{"title":"manifest.json","label":"assets/mediapipe/manifest.json","kind":"edit","lane":3,"step":0,"caption":"1단계","file":"assets/mediapipe/manifest.json"},{"title":"pubspec.lock","label":"pubspec.lock","kind":"edit","lane":3,"step":0,"caption":"1단계","file":"pubspec.lock"}],"edges":[],"lanes":[["앱 · 서버 코드"],["테스트 · QA"],["기획 · 문서"],["도구 · 기타"]],"method":["각 커밋을 첫 번째 부모 커밋과 비교했습니다. 병합 커밋도 같은 기준을 적용합니다.","파일별 변경 전후에는 주변 문맥 세 줄과 원본 줄 번호가 포함됩니다. 인증 정보가 감지된 내용은 가려집니다."],"footer":"추가·삭제 줄은 각 단계의 공개 코드 기준입니다. 같은 줄이 여러 번 수정되면 단계마다 집계됩니다.","url":"https://github.com/trvspoon/travelspoon/pull/151"}</script>
+<script type="application/json" id="report">{"title":"feat: 외국어 메시지 판별과 채팅 번역 UI 개선","meta":["PR #151","종료","기준 main","검토 커밋 5ded4b29"],"metrics":[["2","커밋 단계"],["33","변경 파일 (중복 제외)"],["+64327","공개한 추가 줄 · 커밋 합계"],["−318","공개한 삭제 줄 · 커밋 합계"]],"steps":[{"title":"feat: 외국어 메시지 판별과 채팅 번역 UI 개선","goal":"32개 파일","impact":"+63978 / −260","link":"변경 보기","status":"committed","note":"lib/pages/chat/chat_room_page.dart · lib/pages/chat/widgets/translatable_message_text.dart · lib/services/chat_language_detector.dart","before":"580d4c2db5","after":"7bdf345dbe","compare":{"commit":"7bdf345dbe1624e8e342d50dd3b234ef4ebb6cc3","parent":"580d4c2db56cd9ac36f5c4b3de6f104a411c33f6","src":"changes/7bdf345dbe1624e8e342d50dd3b234ef4ebb6cc3.json"},"url":"https://github.com/trvspoon/travelspoon/pull/151/commits/7bdf345dbe1624e8e342d50dd3b234ef4ebb6cc3","why":"메시지 언어에 따라 번역 진입점을 보여주고, 채팅 화면에서 원문과 번역을 확인할 수 있어야 했습니다.","how":"채팅 화면에서 메시지 위젯과 언어 판별 서비스를 연결하고, 판별 모델·플랫폼 설정·테스트를 추가했습니다.","first":["chat_room_page.dart","translatable_message_text.dart","chat_language_detector.dart"]},{"title":"fix: 번역 판별 실패 대응과 접근성 레이아웃 보완","goal":"13개 파일","impact":"+349 / −58","link":"변경 보기","status":"committed","note":"lib/pages/chat/chat_room_page.dart · lib/pages/chat/widgets/translatable_message_text.dart · lib/services/chat_language_detector.dart","before":"7bdf345dbe","after":"5ded4b299f","compare":{"commit":"5ded4b299ff34f2d8802cf2cccb061d437d31541","parent":"7bdf345dbe1624e8e342d50dd3b234ef4ebb6cc3","src":"changes/5ded4b299ff34f2d8802cf2cccb061d437d31541.json"},"url":"https://github.com/trvspoon/travelspoon/pull/151/commits/5ded4b299ff34f2d8802cf2cccb061d437d31541","why":"언어 판별이 확실하지 않으면 번역에 진입하기 어렵고, 글자 크기가 달라지면 말풍선 배치도 영향을 받았습니다.","how":"판별 결과가 불확실한 메시지에 수동 번역 경로를 두고, 텍스트 배율과 글자 스타일 등을 포함해 너비를 측정하도록 바꿨습니다.","first":["translatable_message_text.dart","chat_language_detector.dart"]}],"nodes":[{"title":"chat_room_page.dart","label":"lib/pages/chat/chat_room_page.dart","kind":"edit","lane":0,"step":1,"caption":"2단계","file":"lib/pages/chat/chat_room_page.dart"},{"title":"translatable_message_text.dart","label":"lib/pages/chat/widgets/translatable_message_text.dart","kind":"edit","lane":0,"step":1,"caption":"2단계","file":"lib/pages/chat/widgets/translatable_message_text.dart"},{"title":"chat_language_detector.dart","label":"lib/services/chat_language_detector.dart","kind":"edit","lane":0,"step":1,"caption":"2단계","file":"lib/services/chat_language_detector.dart"},{"title":"build.gradle.kts","label":"android/app/build.gradle.kts","kind":"edit","lane":0,"step":0,"caption":"1단계","file":"android/app/build.gradle.kts"},{"title":"chat_room_page_test.dart","label":"test/pages/chat/chat_room_page_test.dart","kind":"edit","lane":1,"step":1,"caption":"2단계","file":"test/pages/chat/chat_room_page_test.dart"},{"title":"translatable_message_text_test.dart","label":"test/pages/chat/widgets/translatable_message_text_test.dart","kind":"edit","lane":1,"step":1,"caption":"2단계","file":"test/pages/chat/widgets/translatable_message_text_test.dart"},{"title":"chat_language_detector_test.dart","label":"test/services/chat_language_detector_test.dart","kind":"edit","lane":1,"step":1,"caption":"2단계","file":"test/services/chat_language_detector_test.dart"},{"title":"chat_test_cases.md","label":"docs/qa/chat_test_cases.md","kind":"edit","lane":1,"step":1,"caption":"2단계","file":"docs/qa/chat_test_cases.md"},{"title":"AGENTS.md","label":"AGENTS.md","kind":"edit","lane":2,"step":0,"caption":"1단계","file":"AGENTS.md"},{"title":"DESIGN.md","label":"DESIGN.md","kind":"edit","lane":2,"step":0,"caption":"1단계","file":"DESIGN.md"},{"title":"google-translation-attribution.md","label":"assets/icons/google-translation-attribution.md","kind":"edit","lane":2,"step":0,"caption":"1단계","file":"assets/icons/google-translation-attribution.md"},{"title":"my_groups.md","label":"docs/agent-design-guideline/my_groups.md","kind":"edit","lane":2,"step":1,"caption":"2단계","file":"docs/agent-design-guideline/my_groups.md"},{"title":"google-translation-greyscale.png","label":"assets/icons/google-translation-greyscale.png","kind":"edit","lane":3,"step":0,"caption":"1단계","file":"assets/icons/google-translation-greyscale.png"},{"title":"7db4f23dfe1ad8966b050b419a865da451143fd43eb6b606a256aadeeb1e5417","label":"assets/mediapipe/7db4f23dfe1ad8966b050b419a865da451143fd43eb6b606a256aadeeb1e5417","kind":"edit","lane":3,"step":0,"caption":"1단계","file":"assets/mediapipe/7db4f23dfe1ad8966b050b419a865da451143fd43eb6b606a256aadeeb1e5417"},{"title":"manifest.json","label":"assets/mediapipe/manifest.json","kind":"edit","lane":3,"step":0,"caption":"1단계","file":"assets/mediapipe/manifest.json"},{"title":"pubspec.lock","label":"pubspec.lock","kind":"edit","lane":3,"step":0,"caption":"1단계","file":"pubspec.lock"}],"edges":[],"lanes":[["앱 · 서버 코드"],["테스트 · QA"],["기획 · 문서"],["도구 · 기타"]],"method":["각 커밋을 첫 번째 부모 커밋과 비교했습니다. 병합 커밋도 같은 기준을 적용합니다.","파일별 변경 전후에는 주변 문맥 세 줄과 원본 줄 번호가 포함됩니다. 인증 정보가 감지된 내용은 가려집니다."],"footer":"추가·삭제 줄은 각 단계의 공개 코드 기준입니다. 같은 줄이 여러 번 수정되면 단계마다 집계됩니다.","url":"https://github.com/trvspoon/travelspoon/pull/151"}</script>
 <script>
 const data=JSON.parse(document.querySelector('#report').textContent);
 const q=s=>document.querySelector(s);
@@ -28,73 +33,96 @@ for(const [v,l] of data.metrics){const box=el('div',q('.cards'),undefined,'metri
 for(const [k,t] of Object.entries(kinds)){const s=el('span',q('.legend'));el('i',s,undefined,'box '+k);el('span',s,t)}
 const dlg=q('dialog');q('.close').onclick=()=>dlg.close();dlg.onclick=e=>{if(e.target===dlg&&e.clientX<dlg.getBoundingClientRect().left)dlg.close()};
 
-async function renderCommit(box, compare, selectedFile) {
-  if (!compare) return;
-  const wrap = el('section', box, undefined, 'commit-review');
-  el('h3', wrap, '커밋별 변경 전후');
-  const header = el('header', wrap);
-  header.textContent = compare.example ? '템플릿 예시 · 가상 코드' :
-    '부모 ' + compare.parent.slice(0, 8) + ' → 커밋 ' + compare.commit.slice(0, 8);
+function readingGroup(path) {
+  if (/^(third_party\/|web\/mediapipe\/|assets\/mediapipe\/)|(?:\.lock|\.g\.dart)$/.test(path)) return [11,'외부 의존성'];
+  if (/^docs\/qa\//.test(path)) return [9,'QA 시나리오'];
+  if (/^(integration_test\/|test\/)|(?:_test\.dart|\.test\.[cm]?js)$/.test(path)) return [8,'검증'];
+  if (/^lib\/l10n\//.test(path)) return [7,'사용자에게 보이는 문구'];
+  if (/^(docs\/|marketing\/)|\.md$/i.test(path)) return [10,'명세와 기록'];
+  if (/_page\.dart$|lib\/(main|navigation)\b|\/(settings|hooks)\.json$|^\.github\//.test(path)) return [0,'진입점'];
+  if (/cubit|view_?model|controller|_bloc\.dart/i.test(path)) return [1,'상태와 동작'];
+  if (/widget|screen|view\.dart/i.test(path)) return [2,'화면 표시'];
+  if (/repository|service|api\/|bridge/i.test(path)) return [3,'처리와 연동'];
+  if (/model|entity|source|storage/i.test(path)) return [4,'데이터'];
+  if (/^(lib\/|tool\/|scripts\/)/.test(path)) return [5,'구현'];
+  return [6,'설정과 리소스'];
+}
 
+function renderSide(container, hunk, after) {
+  const pane=el('div',container,undefined,'side');
+  const start=after?hunk.b:hunk.a;
+  const lines=hunk.lines.filter(line=>line[0] !== (after?'-':'+'));
+  const range=lines.length?'　L'+start+'–'+(start+lines.length-1):'';
+  el('h5',pane,(after?'변경 후 · To-be':'변경 전 · As-is')+range);
+  if (!lines.length) { el('p',pane,'이쪽에는 해당 줄이 없습니다.'); return; }
+  const code=el('code',el('pre',pane));
+  // Group adjacent lines with the same style so large vendor files stay readable without thousands of DOM nodes.
+  for (let n=0;n<lines.length;) {
+    const marker=lines[n][0], block=[];
+    do {
+      block.push(String(start+n).padStart(5)+'  '+marker+' '+lines[n].slice(1));
+      n++;
+    } while (n<lines.length && lines[n][0]===marker);
+    el('span',code,block.join('\n'),'source-line'+(marker==='+'?' added':marker==='-'?' removed':''));
+  }
+}
+
+async function renderCommit(box, item) {
+  const compare=item.compare;
+  if (!compare) return;
+  const wrap=el('section',box,undefined,'commit-review');
+  const heading=el('header',wrap);
+  heading.textContent=compare.example?'템플릿 예시 · 가상 코드':'부모 '+compare.parent.slice(0,8)+' → 커밋 '+compare.commit.slice(0,8);
   if (!compare.files) {
     const progress=el('p',wrap,'변경 코드를 불러오는 중…');
     try {
       const response=await fetch(compare.src);
       if (!response.ok) throw Error(response.status);
       const result=await response.json();
-      if(result.commit!==compare.commit || result.parent!==compare.parent) throw Error('commit');
+      if (result.commit!==compare.commit || result.parent!==compare.parent) throw Error('commit mismatch');
       compare.files=result.files;
+      if (!wrap.isConnected) return;
       progress.remove();
-    } catch { progress.textContent='변경 코드를 불러오지 못했습니다. 패널을 다시 열어 주세요.';return; }
+    } catch {
+      progress.textContent='변경 코드를 불러오지 못했습니다. 패널을 다시 열어 주세요.';
+      return;
+    }
   }
-  if (!compare.files.length) { el('p',wrap,'이 커밋에는 파일 변경이 없습니다.');return; }
-  const label = el('label', wrap, '변경 파일 ' + compare.files.length + '개');
-  const select = el('select', label, undefined, 'file-picker');
-  for (const [i, file] of compare.files.entries()) {
-    el('option', select, file.path).value = i;
+  if (!compare.files.length) { el('p',wrap,'이 커밋에는 파일 변경이 없습니다.'); return; }
+  const first=item.first||[];
+  const rank=file=>{
+    const explicit=first.findIndex(p=>p===file.path || (!p.includes('/') && file.path.split('/').pop()===p));
+    return explicit<0?first.length+readingGroup(file.path)[0]:explicit;
+  };
+  const ordered=[...compare.files].sort((a,b)=>rank(a)-rank(b));
+  for (const [index,file] of ordered.entries()) {
+    const section=el('section',wrap,undefined,'review-file');
+    el('small',section,(index+1)+' / '+ordered.length+'　'+readingGroup(file.path)[1],'file-meta');
+    el('h3',section,file.path);
+    if (file.notice) { el('p',section,file.notice); continue; }
+    for (const [i,hunk] of file.hunks.entries()) {
+      const part=el('div',section,undefined,'hunk');
+      if(file.hunks.length>1) el('h4',part,'변경 구간 '+(i+1));
+      const sides=el('div',part,undefined,'sides');
+      renderSide(sides,hunk,false);renderSide(sides,hunk,true);
+    }
   }
-  if(selectedFile){const i=compare.files.findIndex(f=>f.path===selectedFile);if(i>=0) select.value=i;}
-  const content = el('div', wrap);
-  function side(container, hunk, isAfter) {
-    const pane = el('div', container, undefined, 'side');
-    const start = isAfter ? hunk.b : hunk.a;
-    const relevant = hunk.lines.filter(line => line[0] !== (isAfter ? '-' : '+'));
-    el('h5', pane, (isAfter ? '변경 후 · To-be' : '변경 전 · As-is') +
-      (relevant.length ? '　L' + start + '–' + (start + relevant.length - 1) : ''));
-    if (!relevant.length) { el('p', pane, '이쪽에는 해당 줄이 없습니다.'); return; }
-    const code = el('code', el('pre', pane));
-    relevant.forEach((line, offset) => {
-      const marker = line[0];
-      const color = marker === '+' ? ' added' : marker === '-' ? ' removed' : '';
-      const row = el('span', code, undefined, 'source-line' + color);
-      el('span', row, String(start + offset), 'line-no');
-      el('span', row, marker, 'sign');
-      row.append(document.createTextNode(line.slice(1)));
-    });
-  }
-  function display() {
-    content.replaceChildren();
-    const file = compare.files[Number(select.value)];
-    if(file.notice){el('p',content,file.notice);return;}
-    const lines = file.hunks.flatMap(h => h.lines);
-    const add = lines.filter(l => l[0] === '+').length;
-    const del = lines.filter(l => l[0] === '-').length;
-    el('p', content, file.hunks.length + '개 변경 구간 · 추가 ' + add + '줄 · 삭제 ' + del + '줄', 'file-meta');
-    file.hunks.forEach((hunk, i) => {
-      const part = el('div', content, undefined, 'hunk');
-      el('h4', part, '변경 구간 ' + (i + 1));
-      const sides = el('div', part, undefined, 'sides');
-      side(sides, hunk, false);
-      side(sides, hunk, true);
-    });
-  }
-  select.onchange = display;
-  display();
 }
 
-function show(item){q('#detail-title').textContent=item.title;const box=q('.detail');box.replaceChildren();el('p',box,item.note);for(const [label,txt] of [['변경 전 · as-is',item.before],['변경 후 · to-be',item.after]]){el('h3',box,label);el('pre',box,txt)}if(item.url){const a=el('a',box,'GitHub에서 변경 확인 ↗');a.href=item.url}
- renderCommit(box,item.compare,item.file);
- if(!dlg.open)dlg.showModal();dlg.scrollTop=0}
+function show(item) {
+  q('#detail-title').textContent=item.title;
+  const box=q('.detail');
+  box.replaceChildren();
+  const reason=el('dl',box,undefined,'change-reason');
+  for(const [key,value] of [['Why',item.why],['How',item.how]]) {
+    el('dt',reason,key);el('dd',reason,value);
+  }
+  if(item.url){const link=el('a',box,'GitHub에서 변경 확인 ↗');link.href=item.url;}
+  if(!dlg.open) dlg.showModal();
+  dlg.scrollTop=0;
+  renderCommit(box,item);
+}
+
 for(const [i,s] of data.steps.entries()){const [label,css]=statuses[s.status];const b=el('button',q('.steps'),(i+1)+' '+s.title,'pill '+css);b.onclick=()=>show(s);const row=el('tr',q('tbody'));for(const t of [i+1,s.title,s.goal,s.impact])el('td',row,t);el('span',el('td',row),label,'tag '+css);const link=el('button',el('td',row),s.link+' ›','open');link.setAttribute('aria-label',s.title+' 변경 상세');row.onclick=()=>show(s)}
 for(const [i,l] of data.lanes.entries()){const lane=el('div',q('.chart'),undefined,'lane');const label=el('div',lane,l[0],'lane-label');if(l[1])el('small',label,l[1]);for(const [j,n] of data.nodes.entries()){if(n.lane!==i)continue;const b=el('button',lane,undefined,'node '+n.kind);b.id='n'+j;el('b',b,n.title);el('span',b,n.label);if(n.caption)el('small',b,n.caption);b.onclick=()=>show({...data.steps[n.step??0],...n})}}
 const svg=q('svg'),ns='http://www.w3.org/2000/svg';function shape(tag,attrs,parent){const o=document.createElementNS(ns,tag);Object.entries(attrs).forEach(([k,v])=>o.setAttribute(k,v));parent.append(o);return o}
