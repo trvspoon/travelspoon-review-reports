@@ -14,7 +14,7 @@ dialog{overflow-y:auto;overscroll-behavior:contain}.side pre{overscroll-behavior
 .change-reason{display:grid;grid-template-columns:3rem minmax(0,1fr);gap:9px 12px;padding:14px;border:1px solid var(--border);border-radius:7px;background:#292839}
 .change-reason dt{font-weight:700;color:#cfbaff}.change-reason dd{margin:0}
 .review-file{border-top:1px solid var(--border);margin:22px 0 0;padding-top:16px}.review-file h3{margin:4px 0 10px;overflow-wrap:anywhere}.source-line{white-space:pre}
-</style></head><body><main><header><h1></h1><div class="meta"></div><div class="cards"></div></header>
+.hunk-reason{margin:6px 0 10px;background:#222432}.hunk{margin-top:22px}</style></head><body><main><header><h1></h1><div class="meta"></div><div class="cards"></div></header>
 <section><h2>변경 파일 (단계별)</h2><p>분류별 대표 파일을 최대 네 개씩 표시합니다. 단계 버튼에서 해당 커밋의 전체 파일과 변경 전후 코드를 볼 수 있습니다.</p><div class="steps"></div><div class="legend"></div><div class="chartwrap"><div class="chart"><svg class="lines" aria-hidden="true"></svg></div></div></section>
 <section><h2>진행 방식</h2><ul class="list"></ul></section>
 <section><h2>단계 한눈에</h2><p>행을 누르면 그 단계에서 한 일과 변경 전후를 오른쪽 패널에서 확인할 수 있습니다.</p><div class="tablewrap"><table><thead><tr><th>#</th><th>단계</th><th>변경 범위</th><th>공개 코드 변화</th><th>상태</th><th>코드</th></tr></thead><tbody></tbody></table></div><div class="extra"></div></section><p style="margin-top:22px"><a href="../../">최근 PR 목록 ↗</a></p></main>
@@ -76,7 +76,7 @@ async function renderCommit(box, item) {
   if (!compare.files) {
     const progress=el('p',wrap,'변경 코드를 불러오는 중…');
     try {
-      const response=await fetch(compare.src);
+      const response=await fetch(compare.src+"?notes=1");
       if (!response.ok) throw Error(response.status);
       const result=await response.json();
       if (result.commit!==compare.commit || result.parent!==compare.parent) throw Error('commit mismatch');
@@ -102,7 +102,11 @@ async function renderCommit(box, item) {
     if (file.notice) { el('p',section,file.notice); continue; }
     for (const [i,hunk] of file.hunks.entries()) {
       const part=el('div',section,undefined,'hunk');
-      if(file.hunks.length>1) el('h4',part,'변경 구간 '+(i+1));
+      el('h4',part,'변경 구간 '+(i+1));
+      const reason=el('dl',part,undefined,'hunk-reason change-reason');
+      for (const [label,text] of [['Why',hunk.why],['How',hunk.how]]) {
+        el('dt',reason,label); el('dd',reason,text);
+      }
       const sides=el('div',part,undefined,'sides');
       renderSide(sides,hunk,false);renderSide(sides,hunk,true);
     }
