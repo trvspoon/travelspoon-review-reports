@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="ko">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>구현 상황</title>
+<style>
+:root{color-scheme:dark;--bg:#191924;--panel:#242435;--border:#404052;--ink:#f1effa;--muted:#c2bfd0;--green:#80dfac;--purple:#b49bfe;--yellow:#ebc66e}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 system-ui,"Apple SD Gothic Neo","Malgun Gothic",sans-serif}main{max-width:1640px;margin:auto;padding:32px clamp(16px,2.6vw,48px) 60px}h1{font-size:clamp(24px,2vw,34px);line-height:1.22;margin:0 0 12px;letter-spacing:-.045em}h2{font-size:20px;border-bottom:1px solid var(--border);padding-bottom:9px;margin:0 0 12px;letter-spacing:-.035em}h3{font-size:16px}p{margin:9px 0}section{margin-top:36px}a,.link{color:#98c8ff}.meta,.legend,.steps{display:flex;gap:8px 15px;flex-wrap:wrap}.meta{color:var(--muted);font-size:14px}.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:18px}.metric{background:#242431;border:1px solid var(--border);border-radius:9px;padding:15px 18px}.metric strong{display:block;font-size:clamp(22px,2vw,31px);line-height:1.25}.metric span{display:block;margin-top:7px;color:var(--muted);font-size:14px}button{font:inherit;color:inherit;cursor:pointer}button:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid #b6cdff;outline-offset:3px}.steps{gap:8px;margin:12px 0 7px}.pill,.tag{border-radius:16px;padding:2px 10px;font-size:13px;border:1px solid #55546b;background:#343344}.pill:hover,.node:hover{filter:brightness(1.23)}.done{background:#214833;color:#a5f0c2}.active{background:#49336b;color:#e1caff}.legend{color:var(--muted);font-size:13px;gap:6px 16px;margin:8px 0 14px}.legend span{display:inline-flex;align-items:center;gap:5px}.box{width:15px;height:15px;border-radius:4px;border:2px solid var(--border)}.chartwrap{overflow:auto;border:1px solid var(--border);border-radius:8px;background:var(--panel)}.chart{position:relative;min-width:650px;padding:0 16px}.lane{display:flex;align-items:flex-start;gap:18px;min-height:108px;padding:19px 0;border-bottom:1px dashed #424052}.lane:last-child{border:0}.lane-label{width:132px;flex:none;font-size:14px;font-weight:700}.lane-label small{display:block;font-size:12px;color:var(--muted);font-weight:400;margin-top:5px}.node{z-index:1;position:relative;flex:none;text-align:left;max-width:260px;min-width:125px;border:2px solid var(--border);border-radius:8px;background:#292833;padding:8px 11px;line-height:1.35}.node b{display:block;font:700 14px/1.4 ui-monospace,Menlo,monospace;overflow-wrap:anywhere}.node small{display:block;margin-top:6px}.new{border-color:var(--green);background:#254b3d}.edit{border-color:var(--yellow);background:#4a402d}.work{border-color:var(--purple);background:#4c3972}.plan{border:2px dashed #a7a6b7}.outside{border:4px double #a8b9d6}.node span{font-size:13px;color:var(--muted)}.lines{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}.list{padding-left:21px}.list li{margin:5px 0}.tablewrap{overflow:auto}table{width:100%;border-collapse:collapse;min-width:685px;font-size:14px;text-align:left}thead{background:#38374e}th,td{padding:9px 12px;border-bottom:1px solid var(--border)}tbody tr{cursor:pointer}tbody tr:hover{background:#2c2b3d}.open{background:none;border:0;padding:3px;color:#98c8ff}.tag{border:0;display:inline-block;white-space:nowrap}dialog{position:fixed;inset:0 0 0 auto;margin:0;height:100dvh;max-height:none;width:min(490px,100vw);max-width:100vw;background:#242433;color:var(--ink);border:0;border-left:1px solid var(--border);padding:25px;box-shadow:-12px 0 36px #1117}dialog::backdrop{background:#09091580}.close{float:right;border:1px solid var(--border);border-radius:5px;background:#323143;padding:4px 10px}dialog h2{margin-top:42px}pre{background:#191922;border:1px solid var(--border);border-radius:6px;padding:13px;white-space:pre-wrap;overflow-wrap:anywhere;font:14px/1.65 ui-monospace,Menlo,monospace}.extra{color:var(--muted);margin-top:15px}@media(max-width:720px){.cards{grid-template-columns:1fr 1fr}.metric{padding:12px}main{padding-top:22px}section{margin-top:26px}}
+</style></head><body><main><header><h1></h1><div class="meta"></div><div class="cards"></div></header>
+<section><h2>구조 변화 (단계별)</h2><p>원래 있던 구조에 이 작업이 더하고 고친 파일과 호출 관계를 단계별로 그렸습니다. 단계 버튼이나 칸을 누르면 오른쪽 패널에 설명과 바뀐 코드(as-is · to-be)가 열립니다.</p><div class="steps"></div><div class="legend"></div><div class="chartwrap"><div class="chart"><svg class="lines" aria-hidden="true"></svg></div></div></section>
+<section><h2>진행 방식</h2><ul class="list"></ul></section>
+<section><h2>단계 한눈에</h2><p>행을 누르면 그 단계에서 한 일과 변경 전후를 오른쪽 패널에서 확인할 수 있습니다.</p><div class="tablewrap"><table><thead><tr><th>#</th><th>단계</th><th>목적</th><th>앱 동작 변화</th><th>상태</th><th>코드</th></tr></thead><tbody></tbody></table></div><div class="extra"></div></section><p style="margin-top:22px"><a href="index.html">PR #160 적용 예시 ↗</a></p></main>
+<dialog aria-labelledby="detail-title"><button class="close" type="button">닫기 ×</button><h2 id="detail-title"></h2><div class="detail"></div></dialog>
+<!-- 문서를 복제한 뒤 아래 JSON에서 제목, 단계, 레이어, 노드, 연결 관계를 수정하세요. steps와 nodes의 연결 번호는 0부터 시작합니다. -->
+<script type="application/json" id="report">{
+  "title": "{기능 이름} 구현 상황",
+  "meta": [
+    "티켓 {티켓} ({버전})",
+    "브랜치 {브랜치}",
+    "기준 {기준 브랜치}　{기준 커밋}",
+    "갱신 {YYYY-MM-DD}"
+  ],
+  "metrics": [
+    [
+      "1 / 3",
+      "커밋한 단계"
+    ],
+    [
+      "{N}커밋",
+      "{기준 브랜치} 위, PR #{번호}"
+    ],
+    [
+      "{통과 수}",
+      "단위 테스트 통과"
+    ],
+    [
+      "{N}건",
+      "확인하지 못한 것과 남은 일"
+    ]
+  ],
+  "steps": [
+    {
+      "title": "DB 읽기",
+      "goal": "다른 모듈의 DB를 읽는 코드를 한 곳에 둡니다",
+      "impact": "없음",
+      "status": "committed",
+      "link": "파일 2개",
+      "note": "DB 읽기를 로컬 소스에 모으고 Repository에서 호출합니다.",
+      "before": "db.query(id)",
+      "after": "localSource.read(id)"
+    },
+    {
+      "title": "화면 연결",
+      "goal": "읽은 값을 화면에 보입니다",
+      "impact": "예시 화면에 기록이 뜸",
+      "status": "progress",
+      "link": "설명",
+      "note": "ViewModel이 조회 결과를 화면 상태에 반영합니다.",
+      "before": "state = Empty",
+      "after": "state = Loaded(repository.read(id))"
+    },
+    {
+      "title": "변환",
+      "goal": "읽은 값을 화면 모델로 바꿉니다",
+      "impact": "없음",
+      "status": "planned",
+      "link": "설명",
+      "note": "변환 함수를 분리할 예정입니다.",
+      "before": "return row",
+      "after": "return mapper.toModel(row)"
+    }
+  ],
+  "lanes": [
+    [
+      "화면 · ViewModel"
+    ],
+    [
+      "Repository"
+    ],
+    [
+      "DataSource"
+    ],
+    [
+      "저장소",
+      "이 저장소가 소유하지 않는 파일입니다"
+    ]
+  ],
+  "nodes": [
+    {
+      "title": "ExampleScreen",
+      "label": "예시 화면",
+      "lane": 0,
+      "kind": "base",
+      "step": 1,
+      "caption": ""
+    },
+    {
+      "title": "ExampleViewModel",
+      "label": "예시 ViewModel",
+      "lane": 0,
+      "kind": "work",
+      "step": 1,
+      "caption": "고치는 중 · 2단계"
+    },
+    {
+      "title": "ExampleRepository",
+      "label": "예시 Repository",
+      "lane": 1,
+      "kind": "edit",
+      "step": 0,
+      "caption": "고침 · 1단계"
+    },
+    {
+      "title": "ExampleMapper",
+      "label": "변환 함수",
+      "lane": 1,
+      "kind": "plan",
+      "step": 2,
+      "caption": "만들 예정 · 3단계"
+    },
+    {
+      "title": "ExampleLocalSource",
+      "label": "DB 읽기",
+      "lane": 2,
+      "kind": "new",
+      "step": 0,
+      "caption": "새로 · 1단계"
+    },
+    {
+      "title": "example-db",
+      "label": "다른 모듈의 DB",
+      "lane": 3,
+      "kind": "outside",
+      "step": 0,
+      "caption": "저장소 밖"
+    }
+  ],
+  "edges": [
+    [
+      0,
+      1,
+      "#aba8ba"
+    ],
+    [
+      1,
+      2,
+      "#ab90ed"
+    ],
+    [
+      2,
+      3,
+      "#aba8ba",
+      1
+    ],
+    [
+      2,
+      4,
+      "#89dbaa"
+    ],
+    [
+      4,
+      5,
+      "#89dbaa"
+    ]
+  ],
+  "method": [
+    "한 단계가 커밋 하나입니다.",
+    "단계마다 단위 테스트와 ktlintCheck를 통과시킨 뒤 이 보고서를 갱신하고 보고합니다.",
+    "사용자가 확인하면 커밋하고 다음 단계로 갑니다."
+  ]
+}</script>
+<script>
+const data=JSON.parse(document.querySelector('#report').textContent);
+const q=s=>document.querySelector(s);
+function el(tag,parent,text,cls){const x=document.createElement(tag);if(cls)x.className=cls;if(text!==undefined)x.textContent=text;parent.append(x);return x}
+const statuses={committed:['커밋함','done'],progress:['진행 중','active'],planned:['예정','']};
+const kinds={base:'원래 있던 것',new:'새로 만듦',edit:'기존 파일을 고침',work:'진행 중',plan:'예정',outside:'저장소 밖'};
+document.title=q('h1').textContent=data.title;
+for(const t of data.meta)el('span',q('.meta'),t);
+for(const [v,l] of data.metrics){const box=el('div',q('.cards'),undefined,'metric');el('strong',box,v);el('span',box,l)}
+for(const [k,t] of Object.entries(kinds)){const s=el('span',q('.legend'));el('i',s,undefined,'box '+k);el('span',s,t)}
+const dlg=q('dialog');q('.close').onclick=()=>dlg.close();dlg.onclick=e=>{if(e.target===dlg&&e.clientX<dlg.getBoundingClientRect().left)dlg.close()};
+function show(item){q('#detail-title').textContent=item.title;const box=q('.detail');box.replaceChildren();el('p',box,item.note);for(const [label,txt] of [['변경 전 · as-is',item.before],['변경 후 · to-be',item.after]]){el('h3',box,label);el('pre',box,txt)}if(item.url){const a=el('a',box,'GitHub에서 변경 확인 ↗');a.href=item.url}
+ if(!dlg.open)dlg.showModal();dlg.scrollTop=0}
+for(const [i,s] of data.steps.entries()){const [label,css]=statuses[s.status];const b=el('button',q('.steps'),(i+1)+' '+s.title,'pill '+css);b.onclick=()=>show(s);const row=el('tr',q('tbody'));for(const t of [i+1,s.title,s.goal,s.impact])el('td',row,t);el('span',el('td',row),label,'tag '+css);const link=el('button',el('td',row),s.link+' ›','open');link.setAttribute('aria-label',s.title+' 변경 상세');row.onclick=()=>show(s)}
+for(const [i,l] of data.lanes.entries()){const lane=el('div',q('.chart'),undefined,'lane');const label=el('div',lane,l[0],'lane-label');if(l[1])el('small',label,l[1]);for(const [j,n] of data.nodes.entries()){if(n.lane!==i)continue;const b=el('button',lane,undefined,'node '+n.kind);b.id='n'+j;el('b',b,n.title);el('span',b,n.label);if(n.caption)el('small',b,n.caption);b.onclick=()=>show({...data.steps[n.step??0],...n})}}
+const svg=q('svg'),ns='http://www.w3.org/2000/svg';function shape(tag,attrs,parent){const o=document.createElementNS(ns,tag);Object.entries(attrs).forEach(([k,v])=>o.setAttribute(k,v));parent.append(o);return o}
+function draw(){svg.replaceChildren();const base=svg.getBoundingClientRect();const defs=shape('defs',{},svg);for(const [i,[a,b,color,dash]] of data.edges.entries()){const r=q('#n'+a).getBoundingClientRect(),s=q('#n'+b).getBoundingClientRect();const side=Math.abs(r.top-s.top)<8;const x=(side?r.right:r.left+r.width/2)-base.left,y=(side?r.top+r.height/2:r.bottom)-base.top,u=(side?s.left:s.left+s.width/2)-base.left,v=(side?s.top+s.height/2:s.top)-base.top;const marker=shape('marker',{id:'arrow'+i,viewBox:'0 0 8 8',refX:7,refY:4,markerWidth:6,markerHeight:6,orient:'auto'},defs);shape('path',{d:'M0 0L8 4L0 8Z',fill:color},marker);const path=side?'M'+x+' '+y+' C'+(x+12)+' '+y+' '+(u-12)+' '+v+' '+u+' '+v:'M'+x+' '+y+' C'+x+' '+(y+18)+' '+u+' '+(v-18)+' '+u+' '+v;shape('path',{d:path,fill:'none',stroke:color,'stroke-width':1.7,'stroke-dasharray':dash?'4 3':'none','marker-end':'url(#arrow'+i+')'},svg)}}
+new ResizeObserver(draw).observe(q('.chart'));document.fonts.ready.then(draw);
+for(const t of data.method)el('li',q('.list'),t);
+const key=el('li',q('.list'),'상태 표시　');for(const [t,k] of Object.values(statuses).reverse()){el('span',key,t,'tag '+k);key.append(' ')}
+if(data.footer)el('p',q('.extra'),data.footer);if(data.url){const a=el('a',q('.extra'),'원본 PR 열기 ↗');a.href=data.url}
+</script></body></html>
